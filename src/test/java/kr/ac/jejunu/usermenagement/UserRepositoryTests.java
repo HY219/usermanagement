@@ -19,6 +19,9 @@ public class UserRepositoryTests {
     @Autowired
     UserRepository userRepository;
 
+    String name ="정혜연";
+    String password = "1234";
+
     @Test
     public void findAll(){
         //Integer id = 1;
@@ -29,5 +32,15 @@ public class UserRepositoryTests {
         //검증
         assertThat(users.get(0).getId(), greaterThan(0)); //결과, 첫번째 있는 getId는 0보다 클 것이다.
         assertThat(users.get(0).getName(), is(name)); //첫번째 있는 getName은 name과 동일할 것이다.
+    }
+
+    @Test
+    public void save(){
+        User user = User.builder().name(name) .password(password).build();
+        user = userRepository.save(user);
+        assertThat(user.getId(), greaterThan(0));
+        assertThat(user.getName(), is(name));
+        assertThat(user.getPassword(), is(password));
+
     }
 }
