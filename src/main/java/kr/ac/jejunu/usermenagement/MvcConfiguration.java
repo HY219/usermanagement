@@ -10,6 +10,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/list");
+        registry.addViewController("/edit");
         registry.addViewController("/create").setViewName("edit"); //edit.html 사용
     }
 }

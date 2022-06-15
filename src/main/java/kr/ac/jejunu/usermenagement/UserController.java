@@ -21,19 +21,23 @@ public class UserController {
        // return null;
     }
 
-    @PostMapping("/save")
-    public User create(@RequestBody User user){
+//    @PostMapping("/save")
+//    public User create(@RequestBody User user){
+//        return userRepository.save(user);
+//    }
+
+    @RequestMapping(path="/save", method = {RequestMethod.POST, RequestMethod.PUT})
+    public User save(@RequestBody User user) {
         return userRepository.save(user);
     }
-
 
     @GetMapping("/get/{id}")
     public User get(@PathVariable("id") int id) {
         return userRepository.findById(id).get(); //userRepository에 저장되어 있는.id를 꺼내옴.옵션
     }
 
-    @PutMapping("/save")
-    public User modify(@RequestBody User user) {
-        return userRepository.save(user);
-    }
+//    @PutMapping("/save")
+//    public User modify(@RequestBody User user) {
+//        return userRepository.save(user);
+//    }
 }

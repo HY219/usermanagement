@@ -61,7 +61,7 @@ public class UserControllerTests {
     public void create() throws Exception {
 
         User user = User.builder().name(name).password(password).build();
-        given(userController.create(user)).willReturn(user);
+        given(userController.save(user)).willReturn(user);
         String jsonString = objectMapper.writeValueAsString(user);
         mvc.perform(post("/api/save")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -86,7 +86,7 @@ public class UserControllerTests {
     @Test
     public void modify() throws Exception {
         User user= User.builder().id(id).name(name).password(password).build();
-        given(userController.modify(user)).willReturn(user);
+        given(userController.save(user)).willReturn(user);
         String jsonString = objectMapper.writeValueAsString(user);
         mvc.perform(put("/api/save")
                 .contentType(MediaType.APPLICATION_JSON)
