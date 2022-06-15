@@ -82,4 +82,15 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$.name", is(name)))
                 .andExpect(jsonPath("$.password", is(password)));
     }
+
+    @Test
+    public void modify() throws Exception {
+        User user= User.builder().id(id).name(name).password(password).build();
+        given(userController.modify(user)).willReturn(user);
+        String jsonString = objectMapper.writeValueAsString(user);
+        mvc.perform(put("/api/save")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonString))
+                .andExpect(status().isOk());
+    }
 }

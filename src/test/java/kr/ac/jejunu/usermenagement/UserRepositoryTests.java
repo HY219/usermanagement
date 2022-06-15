@@ -42,4 +42,15 @@ public class UserRepositoryTests {
         assertThat(user.getName(), is(name));
         assertThat(user.getPassword(), is(password));
     }
+
+    @Test
+    public void update() {
+        User user = User.builder().name(name) .password(password).build();
+        user = userRepository.save(user);
+        String testName = "hyeyeon";
+        user.setName(testName);
+        User savedUser = userRepository.save(user);
+        assertThat(savedUser.getId(), is(user.getId()));
+        assertThat(savedUser.getName(), is(testName));
+    }
 }
