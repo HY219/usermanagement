@@ -40,4 +40,9 @@ public class UserController {
 //    public User modify(@RequestBody User user) {
 //        return userRepository.save(user);
 //    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        userRepository.delete(userRepository.findById(id).get());
+    }
 }

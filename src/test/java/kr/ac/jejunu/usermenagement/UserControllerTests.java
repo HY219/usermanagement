@@ -93,4 +93,11 @@ public class UserControllerTests {
                 .content(jsonString))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void testDelete() throws Exception {
+        mvc.perform(delete("/api/delete/" +id))
+                .andExpect(status().isOk());
+    }
+
 }
