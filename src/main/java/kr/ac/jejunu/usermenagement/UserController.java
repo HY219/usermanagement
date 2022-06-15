@@ -29,6 +29,6 @@ public class UserController {
 
     @GetMapping("/get/{id}")
     public User get(@PathVariable("id") int id) {
-        return null;
+        return userRepository.findById(id).get(); //userRepository에 저장되어 있는.id를 꺼내옴.옵션
     }
 }
