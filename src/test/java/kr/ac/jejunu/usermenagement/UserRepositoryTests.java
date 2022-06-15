@@ -41,6 +41,5 @@ public class UserRepositoryTests {
         assertThat(user.getId(), greaterThan(0));
         assertThat(user.getName(), is(name));
         assertThat(user.getPassword(), is(password));
-
     }
 }
