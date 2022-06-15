@@ -2,9 +2,7 @@ package kr.ac.jejunu.usermenagement;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,11 @@ public class UserController {
         List<User> users = userRepository.findAll(); //저장되어있는 모든 데이터를 가져와서
         return users; //리턴
        // return null;
+    }
+
+    @PostMapping("/save")
+    public User create(@RequestBody User user){
+        return null;
     }
 
 
