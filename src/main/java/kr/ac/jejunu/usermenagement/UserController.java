@@ -27,4 +27,8 @@ public class UserController {
     }
 
 
+    @GetMapping("/get/{id}")
+    public User get(@PathVariable("id") int id) {
+        return null;
+    }
 }

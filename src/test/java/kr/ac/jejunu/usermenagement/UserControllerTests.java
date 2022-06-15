@@ -68,4 +68,18 @@ public class UserControllerTests {
                 .content(jsonString))
                 .andExpect(status().isOk());
     }
+
+    int id=1;
+
+    @Test
+    public void testGet() throws Exception{
+        //어떤 controller메서드를 호출하고 어떤 값을 줄것인가
+        User user = User.builder().id(id).name(name).password(password).build();
+        given(userController.get(id)).willReturn(user);
+        mvc.perform(get("/api/get/"+ String.valueOf(id))) //id값을 path로 넘김
+                .andExpect(status().isOk()) //status는 Ok가 나와야한다.
+                .andExpect(jsonPath("$.id", is(id))) //id는 is(id)와 같아야한다.
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.password", is(password)));
+    }
 }
