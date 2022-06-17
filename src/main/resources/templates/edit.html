@@ -26,9 +26,16 @@
                 <label>암호</label>
                 <input id="password" type="password" name="password"/>
             </p>
+<!--            &lt;!&ndash;#image&ndash;&gt;-->
+<!--            <p>-->
+<!--                <label>사진</label>-->
+<!--                <input id="image" type="image" name="image"/>-->
+<!--            </p>-->
+<!--            &lt;!&ndash;&ndash;&gt;-->
             <p>
                 <input type="submit" value="저장"/>
             </p>
+
         </fieldset>
     </form>
 </div>
@@ -46,7 +53,10 @@
         var user = {
             id: $('#id').val(),
             name: $('#name').val(),
-            password: $('#password').val()
+            password: $('#password').val(),
+            ////#image
+            //image: $('#image').val()
+            ////
         };
         $.ajax({
             url: "/api/save",
@@ -69,6 +79,9 @@
                 $('#id').val(user.id);
                 $('#name').val(user.name);
                 $('#password').val('');
+                ////#image
+                $('#image').val('user.image');
+                ////
             });
         }
     });

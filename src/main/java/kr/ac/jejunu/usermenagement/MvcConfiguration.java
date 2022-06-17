@@ -9,6 +9,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     //html을 띄우기 위한 과정(@Override addViewControllers)
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        //registry.addViewController("/home");
         registry.addViewController("/list");
         registry.addViewController("/edit");
         registry.addViewController("/create").setViewName("edit"); //edit.html 사용

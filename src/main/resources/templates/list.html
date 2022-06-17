@@ -20,6 +20,8 @@
     <tr>
       <th>아이디</th>
       <th>이름</th>
+      <!--#image-->
+<!--      <th>이미지</th>-->
       <th>수정</th>
       <th>삭제</th>
     </tr>
@@ -29,6 +31,7 @@
   </table>
 </div>
 <script>
+
   $(document).ready(function () {
     $.get("/api/list", function (userList) {
       $.each(userList, function (index, value) {
